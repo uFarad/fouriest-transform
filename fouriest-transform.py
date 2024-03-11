@@ -2,7 +2,7 @@ import argparse
 
 #Constants for min and max radix
 RADIX_MIN = 5
-RADIX_MAX = 16
+RADIX_MAX = 36
 
 #Initiliaze array for four counts
 fours = [0] * (RADIX_MAX + 1)
@@ -29,20 +29,11 @@ for radix in range(RADIX_MIN, RADIX_MAX + 1):
 		result = ''
 		while number > 0:
 			remainder = number % radix
-			if remainder == 15:
-				result = 'F' + result
-			elif remainder == 14:
-				result = 'E' + result
-			elif remainder == 13:
-				result = 'D' + result
-			elif remainder == 12:
-				result = 'C' + result
-			elif remainder == 11:
-				result = 'B' + result
-			elif remainder == 10:
-				result = 'A' + result
-			else:
+			
+			if remainder < 10:
 				result = str(remainder) + result
+			else:
+				result = (chr(ord('A') + remainder - 10)) + result
 			number //= radix
 		
 		fours[radix] = result.count('4')
