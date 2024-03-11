@@ -6,7 +6,7 @@ RADIX_MAX = 16
 
 #Argument handling
 parser = argparse.ArgumentParser("Transforms a number to a radix in which is has the most fours.")
-parser.add_argument("number", type=int, help="Starting number")
+parser.add_argument("number", help="Starting number")
 parser.add_argument("radix", type=int, help="Starting radix/base")
 
 args = parser.parse_args()
