@@ -1,3 +1,8 @@
+"""
+fouriest-transform
+Transforms a number to a radix in which is has the most fours. 
+"""
+
 import argparse
 
 #Constants for min and max radix
@@ -21,7 +26,7 @@ number_start = int(str(args.number), args.radix)
 #Iterate through all valid radices
 for radix in range(RADIX_MIN, RADIX_MAX + 1):
 	number = number_start
-	
+
 	if number == 0:
 		result = '0'
 		fours[radix] = 0
@@ -29,15 +34,15 @@ for radix in range(RADIX_MIN, RADIX_MAX + 1):
 		result = ''
 		while number > 0:
 			remainder = number % radix
-			
+
 			if remainder < 10:
 				result = str(remainder) + result
 			else:
 				result = (chr(ord('A') + remainder - 10)) + result
 			number //= radix
-		
+
 		fours[radix] = result.count('4')
-	
+
 	results[radix] = result
 	print("Base\t", radix, "\tFours\t", fours[radix], "\tResult\t", result)
 
