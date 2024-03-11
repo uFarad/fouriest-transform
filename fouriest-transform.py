@@ -48,7 +48,7 @@ for radix in range(RADIX_MIN, RADIX_MAX + 1):
 		fours[radix] = result.count('4')
 	
 	results[radix] = result
-	print("Base ", radix, " Result ", result, " Fours ", fours[radix])
+	print("Base\t", radix, "\tFours\t", fours[radix], "\tResult\t", result)
 
 winner = fours.index(max(fours))
-print("Winner: Base ", winner, " Number ", results[winner])
+print("\nWinner:\nBase\t", winner, "\tFours\t", fours[winner], "\tNumber\t", results[winner])
