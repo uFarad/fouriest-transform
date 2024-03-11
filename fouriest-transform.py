@@ -6,6 +6,7 @@ RADIX_MAX = 16
 
 #Initiliaze array for four counts
 fours = [0] * (RADIX_MAX + 1)
+results = [0] * (RADIX_MAX + 1)
 
 #Argument handling
 parser = argparse.ArgumentParser("Transforms a number to a radix in which is has the most fours.")
@@ -45,8 +46,9 @@ for radix in range(RADIX_MIN, RADIX_MAX + 1):
 			number //= radix
 		
 		fours[radix] = result.count('4')
-		
+	
+	results[radix] = result
 	print("Base ", radix, " Result ", result, " Fours ", fours[radix])
 
 winner = fours.index(max(fours))
-print("Winner: Base ", winner)
+print("Winner: Base ", winner, " Number ", results[winner])
