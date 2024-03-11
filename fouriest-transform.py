@@ -4,6 +4,9 @@ import argparse
 RADIX_MIN = 4
 RADIX_MAX = 16
 
+#Initiliaze array for four counts
+fours = [0] * (RADIX_MAX + 1)
+
 #Argument handling
 parser = argparse.ArgumentParser("Transforms a number to a radix in which is has the most fours.")
 parser.add_argument("number", help="Starting number")
@@ -20,6 +23,7 @@ for radix in range(RADIX_MIN, RADIX_MAX + 1):
 	
 	if number == 0:
 		result = '0'
+		fours[radix] = 0
 	else:
 		result = ''
 		while number > 0:
@@ -39,4 +43,7 @@ for radix in range(RADIX_MIN, RADIX_MAX + 1):
 			else:
 				result = str(remainder) + result
 			number //= radix
-	print("Base ", radix, " ", result)
+		
+		fours[radix] = result.count('4')
+		
+	print("Base ", radix, " Result ", result, " Fours ", fours[radix])
