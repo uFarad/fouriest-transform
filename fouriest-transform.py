@@ -1,7 +1,7 @@
 import argparse
 
 #Constants for min and max radix
-RADIX_MIN = 4
+RADIX_MIN = 5
 RADIX_MAX = 16
 
 #Initiliaze array for four counts
